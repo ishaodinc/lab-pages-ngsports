@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NG体育 · 运动内容平台</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #faf8f5;
+      font-family: 'Georgia', 'Noto Serif SC', 'Times New Roman', serif;
+      color: #2c2c2c;
+      line-height: 1.7;
+      padding: 2rem 1.5rem 3rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .hero-banner {
+      background: #e8e2d9;
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+      border-radius: 20px;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+      border-left: 6px solid #9b8c7e;
+    }
+
+    .hero-banner h1 {
+      font-size: 2.6rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #3a322b;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-banner .sub {
+      font-size: 1rem;
+      color: #6b5f53;
+      font-style: italic;
+      border-top: 1px solid #c5b8ab;
+      display: inline-block;
+      padding-top: 0.6rem;
+      margin-top: 0.2rem;
+    }
+
+    .background-note {
+      background: #f1ece6;
+      padding: 1.2rem 1.8rem;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      color: #4b423a;
+      border-left: 4px solid #b3a190;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .background-note strong {
+      color: #2e261f;
+    }
+
+    .intro-block {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .intro-card {
+      background: #ffffff;
+      padding: 1.8rem 2rem;
+      border-radius: 16px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e5ddd5;
+    }
+
+    .intro-card h2 {
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: #3a322b;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px dashed #d6cdc1;
+      padding-bottom: 0.3rem;
+    }
+
+    .intro-card p {
+      margin-bottom: 0.8rem;
+    }
+
+    .intro-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .highlight-box {
+      background: #f6f1eb;
+      padding: 1.2rem 1.6rem;
+      border-radius: 14px;
+      border-left: 5px solid #9b8c7e;
+      font-size: 0.98rem;
+      margin: 1rem 0 0.2rem;
+      color: #3f372f;
+    }
+
+    .highlight-box a {
+      color: #6b4f3a;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 500;
+    }
+
+    .highlight-box a:hover {
+      color: #3a2b20;
+    }
+
+    .faq-abstract {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.8rem 2rem;
+      border: 1px solid #e5ddd5;
+      margin-bottom: 2rem;
+    }
+
+    .faq-abstract h2 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #3a322b;
+      margin-bottom: 1rem;
+    }
+
+    .faq-item {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #ebe5dd;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item .q {
+      font-weight: 600;
+      color: #3f3730;
+    }
+
+    .faq-item .a {
+      color: #5b5148;
+      margin-top: 0.2rem;
+      font-size: 0.95rem;
+    }
+
+    .footer-note {
+      text-align: center;
+      padding: 1.8rem 1rem 1rem;
+      border-top: 1px solid #dcd3c9;
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      color: #6f6459;
+    }
+
+    .footer-note a {
+      color: #5e4c3d;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 500;
+    }
+
+    .footer-note a:hover {
+      color: #2f251d;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1.2rem 1rem;
+      }
+      .hero-banner {
+        padding: 2.2rem 1rem;
+      }
+      .hero-banner h1 {
+        font-size: 2rem;
+      }
+      .intro-card {
+        padding: 1.4rem 1.2rem;
+      }
+      .faq-abstract {
+        padding: 1.4rem 1.2rem;
+      }
+      .background-note {
+        padding: 1rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero-banner">
+    <h1>NG体育</h1>
+    <div class="sub">运动资讯 · 内容聚合 · 专题解读</div>
+  </div>
+
+  <div class="background-note">
+    <strong>关于这个站点</strong> —— 它是一个围绕体育内容进行编排的信息屏。不同于传统的门户首页，这里更侧重运动项目、赛事动态与话题的整理，帮助使用者快速判断内容方向与实用价值。平台以文章、短讯与数据摘要为主要形式，面向希望高效获取体育内容的用户。
+  </div>
+
+  <div class="intro-block">
+
+    <div class="intro-card">
+      <h2>从首页判断内容用途</h2>
+      <p>当你第一次打开 <strong>NG体育</strong> 时，最直接的目标是了解这里提供什么、是否匹配你的信息需求。页面围绕运动专题进行组织，比如赛事回顾、训练方法、装备评测与行业视角，并不局限于单一联赛或项目。每一条内容都经过分类标签与时间标记，方便你快速筛选。</p>
+      <p>板块设计以信息密度优先，避免过度装饰。你可以通过标题与摘要判断是否进一步阅读，节省反复跳转的时间。</p>
+    </div>
+
+    <div class="intro-card">
+      <h2>内容生态与结构逻辑</h2>
+      <p>站内内容分为三个主要区域：头条专题（深度长文与数据解读）、项目分类栏（足球、篮球、田径、户外等）、以及快讯流（短消息与即时比分）。三者之间通过关键词与话题标签相互关联，形成网状阅读路径。例如一篇关于马拉松训练的文章，会同时出现在「田径」与「训练」两个标签下。</p>
+      <p>这种结构让初访者也能顺着兴趣方向自然浏览，而不需要事先了解网站导航体系。</p>
+      <div class="highlight-box">
+        💡 提示：若你想快速定位具体运动项目，可直接在页面内使用关键词搜索（桌面端快捷键 Ctrl+F，移动端使用浏览器“在页面内查找”）。
+      </div>
+    </div>
+
+    <div class="intro-card">
+      <h2>适用场景与使用建议</h2>
+      <p>如果你正在准备运动计划、撰写相关稿件，或只是希望利用碎片时间了解体育动态，<strong>NG体育</strong> 的内容密度与分类方式都经过专门设计。建议优先浏览「专题」板块，那里收录了经过整合的系列内容，比零散文章更具参考性。</p>
+      <p>对于深度用户，网站也保留了历史归档索引，可以通过页面底部的归档链接回溯往期内容。整体体验更接近一本数字体育杂志，而非快消式信息流。</p>
+    </div>
+
+  </div>
+
+  <div class="faq-abstract">
+    <h2>常见疑问摘要</h2>
+    <div class="faq-item">
+      <div class="q">Q：怎样快速了解 NG体育 的核心方向？</div>
+      <div class="a">查看首页头条专题与分类标签即可。平台以运动内容为主，不涉及博彩或非体育类信息。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">Q：内容是否每日更新？</div>
+      <div class="a">更新频率视赛事日程与专题制作周期而定，通常每周有 3-5 篇新内容，快讯部分每日滚动刷新。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">Q：是否有评论或互动功能？</div>
+      <div class="a">目前以阅读与信息获取为主，部分文章底部设有引用反馈区，暂未开放公开评论区。</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    如果你希望直接访问内容主站，可使用链接 <a href="https://pages-ngsports.com">NG体育</a> 跳转至首页。页面结构与内容方向以实际展示为准，本介绍页仅作为背景说明。
+  </div>
+
+</body>
+</html>
