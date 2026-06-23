@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>杂志专题 · 世界杯 | 稳定入口与赛事指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f5fafc;
+      color: #1a2b34;
+      line-height: 1.6;
+      padding: 0 1.2rem;
+    }
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2rem 0 3rem;
+    }
+    /* hero 横幅 */
+    .hero {
+      background: linear-gradient(145deg, #0b3b4f, #1b6d7a);
+      margin: 0 -1.2rem 2.5rem -1.2rem;
+      padding: 3.2rem 1.8rem 2.8rem;
+      color: #e8f6fa;
+      border-radius: 0 0 28px 28px;
+      box-shadow: 0 8px 22px rgba(8, 60, 70, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -30px;
+      top: -40px;
+      width: 220px;
+      height: 220px;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      opacity: 0.9;
+      font-weight: 350;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(4px);
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      color: #c3e5ed;
+      margin-top: 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    /* 网格卡片 */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.8rem;
+      margin: 2.2rem 0;
+    }
+    @media (min-width: 640px) {
+      .grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.8rem 1.6rem;
+      box-shadow: 0 6px 16px rgba(0, 30, 40, 0.04);
+      border: 1px solid #dce9ef;
+      transition: transform 0.1s ease, box-shadow 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 10px 24px rgba(0, 50, 60, 0.06);
+      transform: translateY(-2px);
+    }
+    .card-icon {
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 0.6rem;
+      color: #1d7b8a;
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 550;
+      color: #0e4b59;
+      letter-spacing: 0.01em;
+      margin-bottom: 0.4rem;
+    }
+    .card p, .card li {
+      font-size: 0.98rem;
+      color: #1f3e49;
+    }
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .card li {
+      padding: 0.2rem 0 0.2rem 1.4rem;
+      position: relative;
+    }
+    .card li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #1d8a9a;
+    }
+
+    /* 段落承接区域 */
+    .intro-block {
+      background: #ffffff;
+      padding: 2rem 1.6rem;
+      border-radius: 24px;
+      margin: 2rem 0;
+      box-shadow: 0 6px 14px rgba(0, 40, 50, 0.03);
+      border: 1px solid #d0e4ec;
+    }
+    .intro-block p {
+      margin-bottom: 1.2rem;
+      font-size: 1.04rem;
+    }
+    .intro-block p:last-child {
+      margin-bottom: 0;
+    }
+    .highlight-link {
+      color: #166d7a;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1.5px solid #93c5cf;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .highlight-link:hover {
+      color: #0a4957;
+      border-bottom-color: #0a4957;
+    }
+    .faq-mini {
+      background: #eef6f9;
+      border-radius: 20px;
+      padding: 1.8rem 1.5rem;
+      margin: 2rem 0 1.8rem;
+    }
+    .faq-mini h4 {
+      font-weight: 500;
+      color: #0c4a58;
+      margin-bottom: 0.3rem;
+    }
+    .faq-mini p {
+      margin-bottom: 1rem;
+      font-size: 0.96rem;
+      color: #1d434f;
+    }
+    .faq-mini p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    /* 页尾 */
+    .footer-note {
+      border-top: 1px solid #c9dee8;
+      padding-top: 2rem;
+      margin-top: 1.5rem;
+      text-align: center;
+      color: #376672;
+      font-size: 0.92rem;
+    }
+    .footer-note a {
+      color: #115a68;
+      text-decoration: none;
+      font-weight: 480;
+      border-bottom: 1px solid #a8cbd7;
+    }
+    .footer-note a:hover {
+      border-bottom-color: #115a68;
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.9rem; }
+      .hero p { font-size: 1rem; }
+      .card { padding: 1.4rem; }
+      .intro-block { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- 首页横幅 hero -->
+    <div class="hero">
+      <h1>世界杯 · 赛事中枢</h1>
+      <p>稳定的信息入口、赛程导航与背景速览 —— 从预选赛到决赛圈，保持连接。</p>
+      <span class="badge">⚽ 专题 · 2026 周期</span>
+    </div>
+
+    <!-- 三段自然介绍 + 背景说明 -->
+    <div class="intro-block">
+      <p>
+        世界杯早已超越单一赛事的范畴，它构成了全球数十亿人同步关注的共同语境。每届大赛期间，球迷需要的不仅是赛果，更是可靠的页面入口与数据流。作为官方信息聚合平台，
+        <a href="https://portal-worldcup-fifa.com" class="highlight-link">世界杯</a> 
+        承担着稳定枢纽的角色，将赛程、场地、队伍档案与历史数据整合在统一的界面下。
+      </p>
+      <p>
+        从小组抽签到淘汰赛晋级图，从 VAR 判罚规则到各时区开球时间，门户的价值在于清晰的结构和低延迟的访问。与碎片化社交媒体不同，这里提供的是经过校对的赛事背景——每支代表队的大名单、球场容量、气候条件甚至裁判组信息都有据可查。
+      </p>
+      <p>
+        在移动端优先的设计趋势下，专题页面采用了卡片式布局与递进式导航。无论是查看小组积分还是回溯经典决赛阵容，用户都能在三次点击内抵达目标页面。同时，多语言支持让非英语用户同样可以无障碍获取自己关心的内容模块。
+      </p>
+    </div>
+
+    <!-- 网格卡片：两个特色说明 -->
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-icon">📋</div>
+        <h3>赛程与实时数据</h3>
+        <ul>
+          <li>自动适配本地时区的比赛时间</li>
+          <li>进球、换人、黄牌即时推送</li>
+          <li>小组出线形势概率模拟</li>
+          <li>历史交锋记录一键调取</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌐</div>
+        <h3>多维度背景库</h3>
+        <ul>
+          <li>32 支决赛圈球队深度档案</li>
+          <li>主办城市交通与球场导览</li>
+          <li>裁判组执法风格统计</li>
+          <li>从 1930 至今的赛事年鉴</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FAQ 摘要 + 场景提示 -->
+    <div class="faq-mini">
+      <h4>常见疑问速览</h4>
+      <p><strong>如何确认页面是官方入口？</strong> 域名 portal-worldcup-fifa.com 直接关联国际足联网关，所有数据通过官方同步接口更新，无第三方中介。</p>
+      <p><strong>移动端适配如何？</strong> 页面采用 flex/grid 弹性布局，关键按钮与导航间距符合 WCAG 触控标准。比赛日历可横滑浏览，无需缩放。</p>
+      <p><strong>是不是只有赛前才有内容？</strong> 全年保持更新：休赛期提供抽签回顾、经典比赛复盘、规则修订解读；大赛周期则切换为实时模式。</p>
+    </div>
+
+    <!-- 页尾访问提示（自然嵌入链接） -->
+    <div class="footer-note">
+      <p>若需查阅完整的赛程、积分榜与球队档案，可随时访问 <a href="https://portal-worldcup-fifa.com">世界杯</a> 官方专题页。此页面作为静态介绍，旨在说明门户的结构逻辑与数据覆盖范围，所有信息以实际站点为准。</p>
+      <p style="margin-top: 1.2rem; font-size: 0.88rem; opacity: 0.7;">杂志专题式概览 · 2025</p>
+    </div>
+  </div>
+</body>
+</html>
