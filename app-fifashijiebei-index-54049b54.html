@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界杯 · 观赛指南专题</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', 'PingFang SC', Roboto, system-ui, -apple-system, Helvetica, sans-serif;
+      background: linear-gradient(145deg, #fbe9d2 0%, #f3d5b5 30%, #ecd3a3 70%, #fae3c6 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.4rem 1.2rem 3.2rem;
+    }
+    .page-wrapper {
+      max-width: 980px;
+      width: 100%;
+    }
+    /* 杂志感 hero 横幅 */
+    .hero-banner {
+      background: linear-gradient(112deg, #c77d4b 0%, #a85f34 45%, #8e4d2a 100%);
+      border-radius: 2.8rem 2.8rem 2.8rem 2.8rem;
+      padding: 3.6rem 3rem 4rem;
+      margin-bottom: 2.6rem;
+      box-shadow: 0 20px 30px -8px rgba(120, 60, 20, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-banner::after {
+      content: "";
+      position: absolute;
+      right: -30px; top: -80px;
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, rgba(255,215,150,0.2) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255, 230, 200, 0.25);
+      backdrop-filter: blur(2px);
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      color: #faeadc;
+      border: 1px solid rgba(255, 215, 170, 0.3);
+      margin-bottom: 1.6rem;
+    }
+    .hero-title {
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-weight: 600;
+      line-height: 1.2;
+      color: #ffefda;
+      text-shadow: 0 3px 8px rgba(60, 30, 8, 0.5);
+      max-width: 80%;
+    }
+    .hero-sub {
+      margin-top: 1rem;
+      color: #f7e3cf;
+      font-size: 1.05rem;
+      font-weight: 300;
+      letter-spacing: 0.3px;
+      max-width: 70%;
+      border-left: 3px solid #eec196;
+      padding-left: 1.2rem;
+    }
+    /* 白色内容卡片 */
+    .card {
+      background: #fffffffa;
+      backdrop-filter: blur(4px);
+      border-radius: 2.4rem;
+      padding: 2.4rem 2.6rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 24px -8px rgba(90, 55, 28, 0.20);
+      transition: box-shadow 0.2s ease;
+    }
+    .card:hover {
+      box-shadow: 0 14px 32px -12px rgba(80, 40, 10, 0.30);
+    }
+    .card p {
+      color: #3f2c1b;
+      line-height: 1.72;
+      font-size: 1rem;
+      margin-bottom: 1.1rem;
+    }
+    .card p:last-child { margin-bottom: 0; }
+    .card strong {
+      color: #8e4b26;
+      font-weight: 600;
+    }
+    .section-head {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #7a4b2a;
+      letter-spacing: 0.5px;
+      border-bottom: 2px solid #e7cdb4;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .section-head span {
+      background: #dbaa7c;
+      width: 8px; height: 8px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+    /* 特点列表——杂志风格 */
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.8rem;
+      margin: 1.4rem 0 0.8rem;
+    }
+    .feature-item {
+      flex: 1 1 180px;
+      background: #fbf3ea;
+      border-radius: 40px;
+      padding: 0.8rem 1.4rem;
+      font-size: 0.95rem;
+      color: #3f2c1b;
+      border: 1px solid #eddaca;
+      box-shadow: inset 0 1px 3px rgba(255,235,210,0.6);
+    }
+    .feature-item::before {
+      content: "✦";
+      margin-right: 0.6rem;
+      color: #b66f3f;
+    }
+    .faq-snippet {
+      background: #f4e7db;
+      border-radius: 1.8rem;
+      padding: 1.2rem 1.8rem;
+      margin-top: 1.6rem;
+    }
+    .faq-snippet dt {
+      font-weight: 600;
+      color: #673f23;
+      margin-bottom: 0.3rem;
+      font-size: 1rem;
+    }
+    .faq-snippet dd {
+      color: #4a3422;
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+      padding-left: 0.5rem;
+      border-left: 3px solid #cfa277;
+    }
+    .faq-snippet dd:last-child { margin-bottom: 0; }
+    /* 页脚访问提示——柔和按钮感 */
+    .footer-access {
+      text-align: center;
+      margin-top: 1.8rem;
+      padding: 2rem 1rem 1.2rem;
+      background: transparent;
+    }
+    .access-hint {
+      background: #ffffffee;
+      backdrop-filter: blur(2px);
+      display: inline-block;
+      border-radius: 60px;
+      padding: 1rem 2.8rem;
+      box-shadow: 0 6px 12px rgba(110, 60, 30, 0.15);
+      border: 1px solid #f1dac2;
+      font-size: 1rem;
+      color: #2e1f12;
+      transition: all 0.2s;
+    }
+    .access-hint a {
+      color: #974f2a;
+      font-weight: 600;
+      text-decoration: none;
+      background: #f5e1cf;
+      padding: 0.25rem 1rem;
+      border-radius: 40px;
+      transition: background 0.15s, color 0.15s;
+      margin: 0 0.2rem;
+    }
+    .access-hint a:hover {
+      background: #c78152;
+      color: #fcf2e6;
+    }
+    .access-hint a:focus-visible {
+      outline: 2px solid #b66c3a;
+      outline-offset: 4px;
+    }
+    .footnote {
+      font-size: 0.8rem;
+      color: #8b6d54;
+      margin-top: 1.2rem;
+      opacity: 0.7;
+    }
+    /* 响应式处理 */
+    @media (max-width: 640px) {
+      body { padding: 1.4rem 0.8rem 2rem; }
+      .hero-banner { padding: 2.4rem 1.6rem 3rem; }
+      .hero-title { max-width: 100%; }
+      .hero-sub { max-width: 100%; }
+      .card { padding: 1.6rem 1.4rem; border-radius: 1.8rem; }
+      .feature-grid { flex-direction: column; gap: 0.6rem; }
+      .feature-item { flex: auto; }
+      .access-hint { padding: 0.8rem 1.4rem; width: 100%; }
+    }
+    @media (max-width: 480px) {
+      .hero-title { font-size: 1.9rem; }
+      .section-head { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+  <!-- hero 横幅 -->
+  <header class="hero-banner">
+    <div class="hero-tag">✦ 观赛 · 资讯 · 收藏</div>
+    <h1 class="hero-title">你在找的世界杯入口</h1>
+    <div class="hero-sub">一个页面，快速确认你需要的平台：赛程、动态与基础工具。</div>
+  </header>
+
+  <!-- 背景说明：网站用途 -->
+  <section class="card">
+    <h2 class="section-head"><span></span> 这个网站是做什么的？</h2>
+    <p>
+      当你搜索「世界杯」相关服务时，很可能希望快速判断一个网站是否包含自己需要的功能。<strong>app-fifashijiebei.com</strong> 聚焦于提供与世界杯有关的聚合信息与辅助工具——它不制造夸张赛事预测，也不索取个人敏感数据，而是让访客能在一处完成信息浏览与基础查询。
+    </p>
+    <p>
+      如果你是第一次打开这个页面，可以把它理解为一个<strong>轻量信息台</strong>：里面包含赛程参考、球队动态摘要以及一些观看辅助功能。访问<a href="https://app-fifashijiebei.com">世界杯</a>页面，即可直接体验核心内容。
+    </p>
+  </section>
+
+  <!-- 三段自然介绍 —— 从用户视角展开 -->
+  <section class="card">
+    <h2 class="section-head"><span></span> 从快速识别到日常使用</h2>
+    <p>
+      <strong>🔍 快速识别</strong> —— 面对众多相关网站，你希望不用注册、不跳广告就能看清内容是否对口。该页面以卡片式信息呈现，首页呈现主要模块，方便你在一分钟内评估是否匹配自己的需求。所有链接都指向同一核心页面：<a href="https://app-fifashijiebei.com">世界杯</a>。
+    </p>
+    <p>
+      <strong>📋 三段信息组织</strong> —— 网站内容分为三个自然板块：赛事背景（包含历史与当前周期介绍）、观赛辅助（例如日期对照、球队近况）、以及常见疑问摘要。没有冗长文章，每段控制在百字上下，便于扫读。
+    </p>
+    <p>
+      <strong>🎯 场景覆盖</strong> —— 无论是想在通勤时快速浏览下一轮对阵，还是想确认比赛日当地时间，或是回顾小组出线形势，这个页面都能提供基础支持。对于不想安装额外 App 的用户而言，直接访问 <a href="https://app-fifashijiebei.com">世界杯</a> 的网页端就能获得足够信息。
+    </p>
+  </section>
+
+  <!-- 特点与FAQ摘要 混合卡片（更像杂志专题） -->
+  <section class="card">
+    <h2 class="section-head"><span></span> 特点一览 · 常见问题</h2>
+    <div class="feature-grid">
+      <div class="feature-item">赛程日历模式</div>
+      <div class="feature-item">球队数据速查</div>
+      <div class="feature-item">实时比分模块</div>
+      <div class="feature-item">移动端适配</div>
+    </div>
+    <dl class="faq-snippet">
+      <dt>⚽ 网站需要下载 App 吗？</dt>
+      <dd>不需要。这是网页应用，浏览器直接访问 <a href="https://app-fifashijiebei.com">世界杯</a> 即可使用全部主要功能，无强制下载。</dd>
+      <dt>📆 赛程更新是否及时？</dt>
+      <dd>站内赛程基于官方发布节奏同步，通常在比赛前 24 小时与赛后更新。如遇临时调整会尽量标注。</dd>
+      <dt>🌐 我能否只看我关注的球队？</dt>
+      <dd>可以。页面提供球队筛选与收藏标记，方便聚焦特定队伍动态。</dd>
+    </dl>
+  </section>
+
+  <!-- 页尾访问提示 -->
+  <footer class="footer-access">
+    <div class="access-hint">
+      <span>开始探索 </span>
+      <a href="https://app-fifashijiebei.com">世界杯</a>
+      <span>  ·  信息聚合，轻松触及</span>
+    </div>
+    <div class="footnote">本站为信息聚合工具页 · 不涉及博彩及敏感内容</div>
+  </footer>
+</div>
+</body>
+</html>
